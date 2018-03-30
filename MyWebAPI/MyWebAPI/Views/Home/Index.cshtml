@@ -1,0 +1,52 @@
+﻿@model MyWebAPI.Models.CustomerInput
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<html>
+<head>
+    <title>MainForm</title>
+    <script language="javascript">
+function validateDate(oSrc, args[1],args[2])
+{
+  var iDay, iMonth, iYear;
+  var arrValues;
+  arrValues = args.Value.split("/");
+  iMonth = arrValues[0];
+  iDay = arrValues[1];
+  iYear = arrValues[2];
+
+  var testDate = new Date(iYear, iMonth - 1, iDay);
+  if ((testDate.getDate() != iDay) ||
+      (testDate.getMonth() != iMonth - 1) ||
+      (testDate.getFullYear() != iYear))
+  {
+      args[1].IsValid = false;
+        args[2].IsValid = false;
+        return;
+
+  }
+
+  return true;
+}</script>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <div>
+
+                @Html.ValidationSummary()
+
+                <p>Название журнала событий: <input name="JournalName" required placeholder="Введите существующее название журнала"></p>
+            </div>
+            <p>Период, за который нужно вывести количество событий отсортированных по типу.</p>
+            <!--проверка на то, что вторая дата больше-->
+            <div><input id="FirstDate" type="date" name="FirstDate"></div> по  <div><input id="SecondDate" type="date" name="SecondDate"></div>
+            
+            <input type="submit" value="Result" />
+        </fieldset>
+    }
+</body>
+</html>
+
