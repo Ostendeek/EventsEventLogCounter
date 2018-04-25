@@ -38,7 +38,16 @@ function validateDate(oSrc, args[1],args[2])
 
                 @Html.ValidationSummary()
 
-                <p>Название журнала событий: <input name="JournalName" required placeholder="Введите существующее название журнала"></p>
+                <p>Название журнала событий:</p>
+                <select name="JournalName">
+                    <option label="System" selected>System</option>
+                    <option>Application</option>
+                    <option>Key Managemant Service</option>
+                    <option>OALerts</option>
+                    <option>Security</option>
+                    <option>Windows PowerShell</option>
+                </select>
+
             </div>
             <p>Период, за который нужно вывести количество событий отсортированных по типу.</p>
             <!--проверка на то, что вторая дата больше-->
