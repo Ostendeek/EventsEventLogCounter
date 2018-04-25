@@ -10,17 +10,18 @@ using System.Web.Mvc;
 namespace MyWebAPI.Controllers
 {
     public class HomeController : Controller
-    {
+    {   
         [HttpGet]
         public ViewResult Index()
         {
             return View();
         }
-
+        
 
         [HttpPost]
         public ViewResult Index(CustomerInput customerInput)
         {
+            
             EventLog myNewLog = new EventLog
             {
                 Log = customerInput.JournalName
@@ -38,8 +39,17 @@ namespace MyWebAPI.Controllers
                 Response.Write(item);
             }
 
-            //Перенаправление пользователя на страницу с результатами
-            return View("ResultView", customerInput);
+            if (ModelState.IsValid)
+            {
+                //Перенаправление пользователя на страницу с результатами
+                return View("ResultView", customerInput);
+            }
+
+            else
+            {
+                return View();
+            }
+
         }
     }
 }
