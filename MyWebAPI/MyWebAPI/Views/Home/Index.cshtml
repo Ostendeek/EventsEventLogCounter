@@ -5,30 +5,29 @@
 
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
     <title>MainForm</title>
     <script language="javascript">
-function validateDate(oSrc, args[1],args[2])
-{
-  var iDay, iMonth, iYear;
-  var arrValues;
-  arrValues = args.Value.split("/");
-  iMonth = arrValues[0];
-  iDay = arrValues[1];
-  iYear = arrValues[2];
+        function validateDate(oSrc, args[1], args[2]) {
+            var iDay, iMonth, iYear;
+            var arrValues;
+            arrValues = args.Value.split("/");
+            iMonth = arrValues[0];
+            iDay = arrValues[1];
+            iYear = arrValues[2];
 
-  var testDate = new Date(iYear, iMonth - 1, iDay);
-  if ((testDate.getDate() != iDay) ||
-      (testDate.getMonth() != iMonth - 1) ||
-      (testDate.getFullYear() != iYear))
-  {
-      args[1].IsValid = false;
-        args[2].IsValid = false;
-        return;
+            var testDate = new Date(iYear, iMonth - 1, iDay);
+            if ((testDate.getDate() != iDay) ||
+                (testDate.getMonth() != iMonth - 1) ||
+                (testDate.getFullYear() != iYear)) {
+                args[1].IsValid = false;
+                args[2].IsValid = false;
+                return;
 
-  }
+            }
 
-  return true;
-}</script>
+            return true;
+        }</script>
 </head>
 <body>
     @using (Html.BeginForm())
