@@ -8,13 +8,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
     <title>Result</title>>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <style>
+        body {
+            background: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <p>Data from the log, @Model.JournalName</p>
-        
-        <p>For the period from @Model.FirstDate.Date to  @Model.SecondDate.Date</p>
+    <div class="panel-success">
+        <p class="text-center">Data from the log, @Model.JournalName</p>
+
+        <p class="text-center">For the period from @Model.FirstDate.Date to  @Model.SecondDate.Date</p>
     </div>
 </body>
 </html>
